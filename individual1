@@ -1,0 +1,107 @@
+#include <iostream>
+
+class TwoDvector {
+private:
+    int x1, y1;
+    int x2, y2;
+    int x3, y3;
+    int x4, y4;
+    
+
+public:
+    TwoDvector() {
+        x1 = 0;
+        y1 = 0;
+
+        x2 = 0;
+        y2 = 0;
+
+        x3 = 0;
+        y3 = 0;
+
+        x4 = 0;
+        y4 = 0;
+    }
+
+    TwoDvector(int num1, int num2, int num3, int num4, int num5, int num6, int num7, int num8) {
+        x1 = num1;
+        y1 = num2;
+
+        x2 = num3;
+        y2 = num4;
+
+        x3 = num5;
+        y3 = num6;
+
+        x4 = num7;
+        y4 = num8;
+    }
+
+    void setVectorPoints() {
+        std::cout << "Enter point A:\n";
+        std::cout << "Enter x1: ";
+        std::cin >> x1;
+        std::cout << "Enter y1: ";
+        std::cin >> y1;
+        std::cout << "\nEnter point B:\n";
+        std::cout << "Enter x2: ";
+        std::cin >> x2;
+        std::cout << "Enter y2: ";
+        std::cin >> y2;
+
+        std::cout << "\nEnter point C:\n";
+        std::cout << "Enter x1: ";
+        std::cin >> x3;
+        std::cout << "Enter y1: ";
+        std::cin >> y3;
+        std::cout << "\nEnter point D:\n";
+        std::cout << "Enter x2: ";
+        std::cin >> x4;
+        std::cout << "Enter y2: ";
+        std::cin >> y4;
+    }
+
+    void printVectors() {
+        std::cout << "\nVectorAB: (" << x1 << ", " << y1 << ") (" << x2 << ", " << y2 << ")\n";
+        std::cout << "VectorCD: (" << x3 << ", " << y3 << ") (" << x4 << ", " << y4 << ")\n";
+    }
+
+    void coordinatesAB() {
+        std::cout << "\nCoordinates of vector AB: \n(" << x2 - x1 << ", " << y2 - y1 << ")\n";
+    }
+
+    void coordinatesCD() {
+        std::cout << "\nCoordinates of vector CD: \n(" << x4 - x3 << ", " << y4 - y3 << ")\n";
+    }
+
+    bool areCollinear() const {
+
+        return (x1 * y2 == x2 * y1) && (x3 * y4 == x4 * y3);
+    }
+};
+
+int main() {
+    TwoDvector vector;
+
+    std::cout << "--------Vectors--------\n";
+    std::cout << "\n--------Set points for vectors AB and CD--------\n";
+    vector.setVectorPoints();
+    std::cout << "\n--------Vectors--------\n";
+    vector.printVectors(); 
+    std::cout << "\n--------Coordinates of vectors--------\n";
+    vector.coordinatesAB();
+    vector.coordinatesCD();
+    std::cout << "\n--------Collinearity of vectors--------\n";
+
+    if (vector.areCollinear()) {
+        std::cout << "\nVectors AB and CD are collinear\n";
+    }
+    else
+    {
+        std::cout << "\nVectors AB and CD aren't collinear\n";
+    }
+   
+
+    return 0;
+}
+

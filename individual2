@@ -1,0 +1,48 @@
+/*Визначте перевантажені функції power для піднесення до цілого
+невід‘ємного степеня цілих чисел, чисел з плаваючою комою одинарної та
+подвійної точності.*/
+
+#include <iostream>
+#include <cmath>
+
+
+int power(int base, unsigned int exponent) {
+
+    return static_cast<int>(std::pow(base, exponent));
+}
+
+float power(float base, unsigned int exponent) {
+    return std::pow(base, exponent);
+}
+
+double power(double base, unsigned int exponent) {
+    return std::pow(base, exponent);
+}
+
+int main() {
+
+    int intBase;
+    float floatBase;
+    double doubleBase;
+    unsigned int exponent;
+
+    std::cout << "-------Raising a number to a power-------" << std::endl;
+
+    std::cout << "Enter int base: ";
+    std::cin >> intBase;
+    std::cout << "Enter float base: ";
+    std::cin >> floatBase;
+    std::cout << "Enter double base: ";
+    std::cin >> doubleBase;
+    std::cout << "Enter exponent: ";
+    std::cin >> exponent;
+
+    std::cout << "\n-------Number in power-------" << std::endl;
+
+    std::cout << "Power of " << intBase << "^" << exponent << " (int): " << power(intBase, exponent) << std::endl;
+    std::cout << "Power of " << floatBase << "^" << exponent << " (float): " << power(floatBase, exponent) << std::endl;
+    std::cout << "Power of " << doubleBase << "^" << exponent << " (double): " << power(doubleBase, exponent) << std::endl;
+
+
+    return 0;
+}

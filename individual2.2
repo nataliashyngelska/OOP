@@ -1,0 +1,120 @@
+/*Описати клас, що реалізує вказаний тип даних згідно індивідуального завдання.
+Клас повинен містити:
+ множину конструкторів для створення об'єктів певного типу
+(конструктор за замочуванням, конструктор з параметрами, конструктор
+копіювання);
+ вказані операції над об'єктами класу з використанням механізму
+перевантаження операцій
+
+Дійсне число; Модуль числа, сума, добуток на ціле, добуток на дійсне*/
+#include <iostream>
+#include <cmath>
+
+class RealNumber {
+private:
+	double number;
+
+public:
+
+	RealNumber() {
+		number = 0.0;
+	}
+
+	RealNumber(double value) {
+		number = value;
+	}
+	RealNumber(RealNumber &val) {
+
+		number = val.number;
+	}
+
+	void setRealNum() {
+		std::cout << "Enter any real number: ";
+		std::cin >> number;
+	}
+
+	double absValue() {
+		return abs(number);
+	}
+
+	double sumValue(int intnum) {
+		return number + intnum;
+	}
+	
+	double multiplyintValue(int intnum) {
+		return number * intnum;
+	}
+	
+	double multiplyDobValue(double real) {
+		return number * real;
+	}
+		
+	void display() {
+		std::cout << "Current value: " << number << std::endl;
+	}
+};
+
+
+int main() {
+    RealNumber myNumber;
+    int choice;
+
+    do {
+        std::cout << "\n------Menu------:" << std::endl;
+        std::cout << "1. Set real number" << std::endl;
+        std::cout << "2. Get absolute value" << std::endl;
+        std::cout << "3. Sum with integer" << std::endl;
+        std::cout << "4. Multiply by integer" << std::endl;
+        std::cout << "5. Multiply by real" << std::endl;
+        std::cout << "6. Display current value" << std::endl;
+        std::cout << "0. Exit" << std::endl;
+
+        std::cout << "\nEnter your choice: ";
+        std::cin >> choice;
+
+        switch (choice) {
+        case 1:
+            myNumber.setRealNum();
+            break;
+
+        case 2:
+            std::cout << "Absolute Value: " << myNumber.absValue() << std::endl;
+            break;
+
+        case 3:
+            int intValue;
+            std::cout << "Enter an integer: ";
+            std::cin >> intValue;
+            std::cout << "Sum with integer: " << myNumber.sumValue(intValue) << std::endl;
+            break;
+
+        case 4:
+            int multiplyInt;
+            std::cout << "Enter an integer: ";
+            std::cin >> multiplyInt;
+            std::cout << "Multiply by integer: " << myNumber.multiplyintValue(multiplyInt) << std::endl;
+            break;
+
+        case 5:
+            double multiplyReal;
+            std::cout << "Enter a real number: ";
+            std::cin >> multiplyReal;
+            std::cout << "Multiply by real: " << myNumber.multiplyDobValue(multiplyReal) << std::endl;
+            break;
+
+        case 6:
+            myNumber.display();
+            break;
+
+        case 0:
+            std::cout << "Exiting program." << std::endl;
+            break;
+
+        default:
+            std::cout << "Invalid choice. Please try again." << std::endl;
+        }
+
+    } while (choice != 0);
+
+    return 0;
+}
